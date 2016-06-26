@@ -1,0 +1,172 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100);
+
+body {
+  width: 100%;
+}
+
+// BEGIN OFF-CANVAS NAVIGATION
+
+nav {
+  font-family: 'Raleway';
+  background: rgba(0,0,0,0.05);
+  // Width is 100% of it's container's width
+  width: 100%;
+  // Height is 100% of viewport height; responsive fix
+  height: 100vh;
+  position: fixed;
+  z-index: 0;
+  .nav-header {
+    margin: 0;
+    font-weight: 100;
+    font-size: 1.5em;
+    padding: .25em 0 .25em 1rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    li {
+      a {
+        display: block;
+        width: 100%;
+        padding: .25em 0 .25em 1rem;
+        color: rgba(0,0,0,0.7);
+        transition: .2s;
+        &:hover, &:active {
+          color: #000000;
+          background: rgba(0,0,0,0.2);
+        }
+      }
+    }
+  }
+  // For when a link is active
+  .active {
+    color: #000000;
+    background: rgba(0,0,0,0.2);
+  }
+  .sub-nav {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    padding-bottom: 0;
+    font-weight: 100;
+  }
+}
+.site-wrap {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+}
+.nav-trigger {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+label[for="nav-trigger"] {
+  position: fixed;
+  top: 0;
+  left: .3em;
+  z-index: 2;
+  cursor: pointer;
+  color: rgba(255,255,255,0.7);
+  transition: 1s;
+  &:hover {
+    color: #ffffff;
+  }
+}
+.fi-list {
+  font-size: 2.5em;
+}
+.nav-trigger:checked + label {
+  left: 15.25rem;
+  color: #ffffff;
+}
+.nav-trigger:checked ~ .site-wrap {
+    left: 15rem;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.3);
+}
+.nav-trigger + label, .site-wrap {
+  transition: left 0.4s;
+}
+body {
+  overflow-x: hidden;
+}
+
+// END OFF-CANVAS NAVIGATION
+
+// BEGIN PARALLAX STYLES
+
+.parallax {
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+  }
+
+  .parallax__group {
+    position: relative;
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .parallax__layer--fore {
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+    z-index: 1;
+  }
+
+  .parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+  }
+
+  .parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-300px) scale(2);
+    z-index: 3;
+  }
+
+  .parallax__layer--deep {
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+    z-index: 2;
+  }
+
+#group1 {
+  background-image: url('../recasterPresentation/refabPresentationAlt.jpg');
+  background-position: center;
+  z-index: 5;
+}
+.back1 {
+  background-image: url('http://placehold.it/1280x413/F7FE2E?text=Background');
+  background-position: center;
+}
+.base1 {
+  background-image: url('http://placehold.it/1280x413/2E2EFE?text=Foreground');
+  background-position: center;
+  opacity: 0.5;
+}
+#group3, #group5 {
+  background-image: url('http://placehold.it/1280x413/000000?text=Foreground');
+  background-position: center;
+  opacity: 0.7;
+  z-index: 5;
+}
+
+// END PARALLAX STYLES
